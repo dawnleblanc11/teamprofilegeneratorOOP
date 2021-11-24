@@ -17,9 +17,9 @@ test('get office number for a manager from function', () => {
     const manager = new Manager("Scold", 951 , "scold@flinstones.com", officeNumber);
     expect(manager.getOfficeNumber()).toEqual(officeNumber);
   });
-//test 7 getRole() function for a manager
+//test 10 getRole() function for a manager
 test('creates the role of manager from function', () => {
     const role = "Manager";
-    const manager = new Manager("mrRubble", 258, "mrRubble@flinstones.org");
+    const manager = new Manager("mrRubble", 258, "mrRubble@flinstones.org", 987);
     expect(manager.getRole()).toEqual(role);
   });
