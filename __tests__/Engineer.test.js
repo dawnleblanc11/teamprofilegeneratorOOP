@@ -1,6 +1,4 @@
-// connects test to files you are testing
 // needs employee since this is the base class
-const Engineer = require("../lib/Engineer");
 const Employee = require("../lib/Employee");
 
 
@@ -24,3 +22,6 @@ test('creates the role of engineer from function', () => {
     const engineer = new Engineer("Rockroof", 654 , "Rockroof@flinstones.com", "nosunroof");
     expect(engineer.getRole()).toEqual(role);
   }); 
+
+  // connects test to files you are testing
+module.exports = Engineer;
