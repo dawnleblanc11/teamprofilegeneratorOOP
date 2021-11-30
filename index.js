@@ -14,11 +14,26 @@ const managerQuestions =[
         type: "input",
         message: "What is the Managers's name?",
         name: "name",
+        validate: (answer) => {
+            const pattern = /^[a-zA-Z ]{3,30}$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid name!"
+            }
+            return true
+        }
+        
     },
     {
         type: "input",
         message: "Enter the ID number for the Manager?",
         name: "id",
+        validate: (answer) => {
+            const pattern = /^\d+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid number!"
+            }
+            return true
+        }
     },
     { 
         type: "input",
@@ -37,6 +52,13 @@ const managerQuestions =[
          type: "input",
          message: "What is the Office Number for the Manager?",
          name: "officeNumber",
+         validate: (answer) => {
+            const pattern = /^\d+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid number!"
+            }
+            return true
+        }
   },
 ]
    
@@ -62,11 +84,25 @@ const engineerQuestions =[
             type: "input",
             message: "What is the Engineer's name?",
             name: "name",
+            validate: (answer) => {
+                const pattern = /^[a-zA-Z ]{3,30}$/
+                if(!pattern.test(answer)) {
+                    return "Please provide a valid name!"
+                }
+                return true
+            }
         },
         {
             type: "input",
             message: "Enter the ID number for the Engineer?",
             name: "id",
+            validate: (answer) => {
+                const pattern = /^\d+$/
+                if(!pattern.test(answer)) {
+                    return "Please provide a valid number!"
+                }
+                return true
+            }
         },
         { 
             type: "input",
@@ -108,11 +144,25 @@ const internQuestions =[
         type: "input",
         message: "What is the Intern's name?",
         name: "name",
+        validate: (answer) => {
+            const pattern = /^[a-zA-Z ]{3,30}$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid name!"
+            }
+            return true
+        }
     },
     {
         type: "input",
         message: "Enter the ID number for the Intern?",
         name: "id",
+        validate: (answer) => {
+            const pattern = /^\d+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid number!"
+            }
+            return true
+        }
     },
     { 
         type: "input",
@@ -131,6 +181,13 @@ const internQuestions =[
          type: "input",
          message: "What is school is the intern attending?",
          name: "schoolname",
+         validate: (answer) => {
+            const pattern = /^[a-zA-Z ]{3,30}$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid school!"
+            }
+            return true
+        }
   },
 ]
    
