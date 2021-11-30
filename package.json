@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "inquirer": "^8.2.0",
-    "just": "^0.1.8"
+    "just": "^0.1.8",
+    "validator": "^13.7.0"
   },
   "name": "teamprofilegeneratoroop",
   "description": "displays webpage with information about employees on a team",
