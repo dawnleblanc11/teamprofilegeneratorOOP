@@ -6,7 +6,6 @@ const Manager = require("./lib/Manager");
 const fs = require('fs');
 const path = require('path');
 const createHTML = require('./src/createHTML');
-
 const team=[];
 
 // set of questions for manager
@@ -25,6 +24,13 @@ const managerQuestions =[
         type: "input",
         message: "What's the email address for the Manager?",
         name: "email",
+        validate: (answer) => {
+            const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid email address!"
+            }
+            return true
+        }
     },
     {
          // asking special question that belongs to Manager
@@ -66,6 +72,13 @@ const engineerQuestions =[
             type: "input",
             message: "What's the email address for the Engineer?",
             name: "email",
+            validate: (answer) => {
+                const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+                if(!pattern.test(answer)) {
+                    return "Please provide a valid email address!"
+                }
+                return true
+            }
         },
         {
              // asking special question that belongs to engineer
@@ -105,6 +118,13 @@ const internQuestions =[
         type: "input",
         message: "What's the email address for the Intern?",
         name: "email",
+        validate: (answer) => {
+            const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid email address!"
+            }
+            return true
+        }
     },
     {
          // asking special question that belongs to intern
