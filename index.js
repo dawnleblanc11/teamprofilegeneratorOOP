@@ -38,11 +38,12 @@ const managerQuestions =[
 //return the managers array
 
 function getManager() {
+        console.log("----Add the Manager----");
         inquirer.prompt(managerQuestions)
 .then(answers => {
-    const manager = new Manager(answers.name, answers.id, answers.email, "Manager", answers.officeNumber, );
+    const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber, "Manager",);
     team.push(manager);
-    getEngineer();
+    getnextEmployee();
 });
 
 };
@@ -78,11 +79,12 @@ const engineerQuestions =[
 //return the engineers array
 
 function getEngineer() {
+            console.log("----Add the Engineer----")
             inquirer.prompt(engineerQuestions)
     .then(answers => {
-        const engineer = new Engineer(answers.name, answers.id, answers.email, "Engineer", answers.githubUsername );
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.githubUsername, "Engineer");
         team.push(engineer);
-        getIntern();
+        getnextEmployee();
     });
 
 };
@@ -116,14 +118,48 @@ const internQuestions =[
 //return the interns array
 
 function getIntern() {
+    console.log("----Add the Intern----")
         inquirer.prompt(internQuestions)
 .then(answers => {
-    const intern = new Intern(answers.name, answers.id, answers.email, "Intern", answers.schoolname, );
+    const intern = new Intern(answers.name, answers.id, answers.email, answers.schoolname,"Intern" );
     team.push(intern);
-    generatePage(team);
+    getnextEmployee();
 });
 
 };
+
+const employeeQuestion = [
+    {
+    type: "list",
+    message: "Which type of employee would you like to add the Development Team?",
+    name: "employeerole",
+    choices: ["Engineer", "Intern", "All Employees Added"]     
+    }
+]
+
+function getnextEmployee() {
+    console.log("----Add Next Employee----");
+    inquirer.prompt(employeeQuestion)
+    .then (function(data) {
+        console.log(data.employeerole);
+        switch (data.employeerole) {
+            case "Engineer":
+                getEngineer();
+                       
+            break;
+
+            case "Intern":
+                getIntern();
+                
+            break;
+
+            case "All Employees Added":
+                console.log("----Generating Development Team Chart----");
+                generatePage(team);
+        }
+    })
+};
+
 // function to write file
 function writeToFile (fileName,data) {
     fs.writeFile(path.join(__dirname,fileName),data,function(err) {
@@ -140,5 +176,4 @@ function generatePage(team) {
 }
 
 getManager();
-
 
