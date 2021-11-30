@@ -41,7 +41,6 @@ function getManager() {
         inquirer.prompt(managerQuestions)
 .then(answers => {
     const manager = new Manager(answers.name, answers.id, answers.email, "Manager", answers.officeNumber, );
-    console.log(manager);
     team.push(manager);
     getEngineer();
 });
@@ -82,7 +81,6 @@ function getEngineer() {
             inquirer.prompt(engineerQuestions)
     .then(answers => {
         const engineer = new Engineer(answers.name, answers.id, answers.email, "Engineer", answers.githubUsername );
-        console.log(engineer);
         team.push(engineer);
         getIntern();
     });
@@ -122,8 +120,6 @@ function getIntern() {
 .then(answers => {
     const intern = new Intern(answers.name, answers.id, answers.email, "Intern", answers.schoolname, );
     team.push(intern);
-    console.log(intern);
-    console.log(team);
     generatePage(team);
 });
 
@@ -139,7 +135,7 @@ function writeToFile (fileName,data) {
 // function to create HTML page
 function generatePage(team) {
     const html = createHTML(team);
-    console.log("trying to generate HTML")
+    console.log("Generating HTML")
     return writeToFile('team.html', html);
 }
 

@@ -1,9 +1,10 @@
-const fs = require('fs');
+const fs = require("fs");
 
 // Creates HTML based on the team members entered
 
 function createHTML(team) {
-    return`
+
+  return `
     <!DOCTYPE html>
     <html lang="en-us">
     
@@ -18,70 +19,76 @@ function createHTML(team) {
     </head>
     
     <body>
+     <style>
+     #profileheader {
+       background:red;
+       color: white;
+       margin-bottom: 20px;;
+     }
+    #employeeheader {
+       background: cornflowerblue;
+       color: white;
+     }
+     .card {
+         max-width: 15rem;
+         box-shadow: 5px 5px lightgrey;
+     }
+   
+    </style>
       <!-- Creates the Overall Page -->
       <div class="container">
     
         <!-- Row 1 -->
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12" id="profileheader">
             <h1 class="text-center">Development Team</h1>
           </div>
         </div>
-    
-        <!-- Row 2 -->
-        <div class="row">
-          <div class="col-sm-3">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt optio provident tempora amet, eveniet et, eum illum, culpa laborum dicta recusandae magni architecto. Illo saepe facilis, unde. Debitis, atque, doloremque?</p>
-          </div>
-          <div class="col-sm-3">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolorum perferendis voluptates error ullam placeat repellendus. Repellendus error repellat veritatis recusandae voluptates earum rerum consectetur itaque, ipsam nihil. Alias, nemo.</p>
-          </div>
-          <div class="col-sm-3">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ratione sint ex porro excepturi non dolorum, ullam ea quae vel earum, soluta obcaecati natus. Eligendi iusto accusantium mollitia debitis assumenda!</p>
-          </div>
+      <!-- Only one manager and always first -->
+        <div class="row card-columns">
+        <div class="card">
+          <div class="card-body" id="employeeheader">
+          <h4 class="card-title">${team[0].name}</h4>
+          <h5 class="card-text">Manager</h5>
         </div>
-    
-        <!-- Row 3 -->
-        <div class="row">
-          <div class="col-sm-2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur optio dolorem dolores odio alias perferendis, commodi cum. Natus libero cum dolore officia quia eveniet modi reprehenderit soluta ratione quisquam? Sequi.</p>
-          </div>
-          <div class="col-sm-2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur optio dolorem dolores odio alias perferendis, commodi cum. Natus libero cum dolore officia quia eveniet modi reprehenderit soluta ratione quisquam? Sequi.</p>
-          </div>
-          <div class="col-sm-2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur optio dolorem dolores odio alias perferendis, commodi cum. Natus libero cum dolore officia quia eveniet modi reprehenderit soluta ratione quisquam? Sequi.</p>
-          </div>
-          <div class="col-sm-2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur optio dolorem dolores odio alias perferendis, commodi cum. Natus libero cum dolore officia quia eveniet modi reprehenderit soluta ratione quisquam? Sequi.</p>
-          </div>
-          <div class="col-sm-2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur optio dolorem dolores odio alias perferendis, commodi cum. Natus libero cum dolore officia quia eveniet modi reprehenderit soluta ratione quisquam? Sequi.</p>
-          </div>
-          <div class="col-sm-2">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur optio dolorem dolores odio alias perferendis, commodi cum. Natus libero cum dolore officia quia eveniet modi reprehenderit soluta ratione quisquam? Sequi.</p>
-          </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: ${team[0].id}</li>
+          <li class="list-group-item">Email: ${team[0].email}</li>
+          <li class="list-group-item">Office Number: ${team[0].officeNumber}</li>
+        </ul>
+        <!-- to do: create loops for engineers and interns -->
         </div>
-    
-        <!-- Row 4 -->
-        <div class="row">
-          <div class="col-sm-6">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti illo voluptates blanditiis nisi! Ullam dolore aspernatur, ratione error similique veniam iusto, labore repellat eaque nostrum optio doloribus illo nihil dolor?</p>
-          </div>
-          <div class="col-sm-6">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sequi ex quam quia iste, nemo molestias dolor, qui dolorem voluptatibus ipsa maxime voluptas et deserunt porro repellendus veritatis nesciunt quisquam.</p>
-          </div>
-        </div>
+        <div class="card">
+        <div class="card-body" id="employeeheader">
+        <h4 class="card-title">${team[1].name}</h4>
+        <h5 class="card-text">Engineer</h5>
       </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${team[1].id}</li>
+        <li class="list-group-item">Email: ${team[1].email}</li>
+        <li class="list-group-item">GitHub: ${team[1].githubUsername}</li>
+      </ul>
+      </div>
+      </div>
+        <div class="card">
+        <div class="card-body" id="employeeheader">
+        <h4 class="card-title">${team[2].name}</h4>
+        <h5 class="card-text">Intern</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${team[2].id}</li>
+        <li class="list-group-item">Email: ${team[2].email}</li>
+        <li class="list-group-item">School: ${team[2].schoolname}</li>
+      </ul>
+      </div>
+       
     
     </body>
     
     </html>   
     
-    `
+    `;
 }
-
-
 
 // exports the createHTML function
 module.exports = createHTML;
