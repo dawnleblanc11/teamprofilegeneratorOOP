@@ -44,7 +44,8 @@ function createHTML(data) {
             <h1 class="text-center">Development Team</h1>
           </div>
         </div>
-      <!-- Only one manager and always first -->
+      <!-- Start of Employee Cards -->
+      <!-- TO DO: switch from vertical- remove commas -->
         <div class="row card-columns">
         
      ${createEmployeeCards(data)}
