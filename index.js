@@ -6,7 +6,6 @@ const Manager = require("./lib/Manager");
 const fs = require('fs');
 const path = require('path');
 const createHTML = require('./src/createHTML');
-
 const team=[];
 
 // set of questions for manager
@@ -15,22 +14,51 @@ const managerQuestions =[
         type: "input",
         message: "What is the Managers's name?",
         name: "name",
+        validate: (answer) => {
+            const pattern = /^[a-zA-Z ]{3,30}$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid name!"
+            }
+            return true
+        }
+        
     },
     {
         type: "input",
         message: "Enter the ID number for the Manager?",
         name: "id",
+        validate: (answer) => {
+            const pattern = /^\d+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid number!"
+            }
+            return true
+        }
     },
     { 
         type: "input",
         message: "What's the email address for the Manager?",
         name: "email",
+        validate: (answer) => {
+            const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid email address!"
+            }
+            return true
+        }
     },
     {
          // asking special question that belongs to Manager
          type: "input",
          message: "What is the Office Number for the Manager?",
          name: "officeNumber",
+         validate: (answer) => {
+            const pattern = /^\d+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid number!"
+            }
+            return true
+        }
   },
 ]
    
@@ -56,16 +84,37 @@ const engineerQuestions =[
             type: "input",
             message: "What is the Engineer's name?",
             name: "name",
+            validate: (answer) => {
+                const pattern = /^[a-zA-Z ]{3,30}$/
+                if(!pattern.test(answer)) {
+                    return "Please provide a valid name!"
+                }
+                return true
+            }
         },
         {
             type: "input",
             message: "Enter the ID number for the Engineer?",
             name: "id",
+            validate: (answer) => {
+                const pattern = /^\d+$/
+                if(!pattern.test(answer)) {
+                    return "Please provide a valid number!"
+                }
+                return true
+            }
         },
         { 
             type: "input",
             message: "What's the email address for the Engineer?",
             name: "email",
+            validate: (answer) => {
+                const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+                if(!pattern.test(answer)) {
+                    return "Please provide a valid email address!"
+                }
+                return true
+            }
         },
         {
              // asking special question that belongs to engineer
@@ -95,22 +144,50 @@ const internQuestions =[
         type: "input",
         message: "What is the Intern's name?",
         name: "name",
+        validate: (answer) => {
+            const pattern = /^[a-zA-Z ]{3,30}$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid name!"
+            }
+            return true
+        }
     },
     {
         type: "input",
         message: "Enter the ID number for the Intern?",
         name: "id",
+        validate: (answer) => {
+            const pattern = /^\d+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid number!"
+            }
+            return true
+        }
     },
     { 
         type: "input",
         message: "What's the email address for the Intern?",
         name: "email",
+        validate: (answer) => {
+            const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid email address!"
+            }
+            return true
+        }
     },
     {
          // asking special question that belongs to intern
          type: "input",
          message: "What is school is the intern attending?",
          name: "schoolname",
+         validate: (answer) => {
+            const pattern = /^[a-zA-Z ]{3,30}$/
+            if(!pattern.test(answer)) {
+                return "Please provide a valid school!"
+            }
+            return true
+        }
   },
 ]
    
