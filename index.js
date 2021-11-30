@@ -5,6 +5,7 @@ const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const fs = require('fs');
 const path = require('path');
+const createHTML = require('./src/createHTML');
 
 const team=[];
 
@@ -49,7 +50,7 @@ function getManager() {
 // need logic to ask which type of employee you want to enter and if you are done
 // need to add validation
 
-    // set of questions for engineer 
+// set of questions for engineer 
 const engineerQuestions =[
         {
             type: "input",
@@ -88,6 +89,7 @@ function getEngineer() {
 
 };
 
+// set of questions for interns
 const internQuestions =[
     {
         type: "input",
@@ -122,6 +124,7 @@ function getIntern() {
     team.push(intern);
     console.log(intern);
     console.log(team);
+    generatePage(team);
 });
 
 };
@@ -136,6 +139,7 @@ function writeToFile (fileName,data) {
 // function to create HTML page
 function generatePage(team) {
     const html = createHTML(team);
+    console.log("trying to generate HTML")
     return writeToFile('team.html', html);
 }
 
