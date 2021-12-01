@@ -29,24 +29,34 @@ function createHTML(data) {
        background: cornflowerblue;
        color: white;
      }
-     .card {
-         max-width: 15rem;
-         box-shadow: 5px 5px lightgrey;
+     #cardcontainer {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
      }
+     .card {
+        width: 20rem;
+        height: 20rem;
+         box-shadow: 5px 5px lightgrey;
+         margin-bottom: 4rem;
+     }
+     .list-group {
+      width: 20rem;
+      height: 25rem;
+    
+    }
    
     </style>
-      <!-- Creates the Overall Page -->
-      <div class="container">
-    
-        <!-- Header row -->
-        <div class="row">
+          
+        <!-- Header -->
           <div class="col-sm-12" id="profileheader">
             <h1 class="text-center">Development Team</h1>
           </div>
         </div>
       <!-- Start of Employee Cards -->
-      <!-- TO DO: switch from vertical- remove commas -->
-        <div class="row card-columns">
+      <!-- TO DO: switch from vertical -->
+      <div class="container" id="cardcontainer">
+      <div class="card" id="employeecards"> 
         
      ${createEmployeeCards(data)}
      
@@ -59,6 +69,7 @@ function createHTML(data) {
 
 function createEmployeeCards(data) {
   return data.map((data) => {
+    
     let role = data.getRole();
     switch(role) {
       case "Manager":
@@ -71,7 +82,7 @@ function createEmployeeCards(data) {
         return createInterncard(data);
         break;
     }
-  })
+  }).join('')
 };
 
 function createManagercard(data) {
