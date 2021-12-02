@@ -1,5 +1,5 @@
 const fs = require("fs");
-
+//TO: FIX email link and github link
 // Creates HTML based on the team members entered
 
 function createHTML(data) {
@@ -15,6 +15,7 @@ function createHTML(data) {
     
       <!-- Team Generator-->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     </head>
     
@@ -69,7 +70,7 @@ function createHTML(data) {
 
 function createEmployeeCards(data) {
   return data.map((data) => {
-    
+    console.log(data);
     let role = data.getRole();
     switch(role) {
       case "Manager":
@@ -90,11 +91,14 @@ function createManagercard(data) {
   <div class="card">
           <div class="card-body" id="employeeheader">
           <h4 class="card-title">${data.name}</h4>
+          <i class="material-icons">business_center</i>
           <h5 class="card-text">Manager</h5>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${data.id}</li>
-          <li class="list-group-item">Email: ${data.email}</li>
+          <li class="list-group-item">Email: 
+          <a href="mailto:${data.email}">${data.email}</a>
+          </li>
           <li class="list-group-item">Office Number: ${data.officeNumber}</li>
         </ul> 
        </div> 
@@ -107,13 +111,18 @@ function createEngineercard(data) {
   <div class="card">
   <div class="card-body" id="employeeheader">
   <h4 class="card-title">${data.name}</h4>
+  <i class="material-icons">engineering</i>
   <h5 class="card-text">Engineer</h5>
 </div>
 <ul class="list-group list-group-flush">
   <li class="list-group-item">ID: ${data.id}</li>
-  <li class="list-group-item">Email: ${data.email}</li>
-  <li class="list-group-item">GitHub: ${data.githubUsername}</li>
-</ul>
+  <li class="list-group-item">Email: 
+  <a href="mailto:${data.email}">${data.email}</a>
+   </li>
+  <li class="list-group-item">GitHub: 
+    <a href="https://github.com/${data.githubUsername}">${data.githubUsername}</a>
+  </li>
+  </ul>
 </div>
 `
 };
@@ -123,11 +132,14 @@ function createInterncard(data) {
 <div class="card">
 <div class="card-body" id="employeeheader">
 <h4 class="card-title">${data.name}</h4>
+<i class="material-icons">backpack</i>
 <h5 class="card-text">Intern</h5>
 </div>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">ID: ${data.id}</li>
-<li class="list-group-item">Email: ${data.email}</li>
+<li class="list-group-item">Email: 
+  <a href="mailto:${data.email}">${data.email}</a>
+   </li>
 <li class="list-group-item">School: ${data.schoolname}</li>
 </ul>
 </div>
