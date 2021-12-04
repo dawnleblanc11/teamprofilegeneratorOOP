@@ -15,7 +15,7 @@
   
   ## Usage 
   A manager can use to set up staffing chart.
-  ![Sample Usage Video](https://drive.google.com/file/d/18m6RI6_hnnHtsifZ0kEo_7WdwUAIT-4r/view?usp=sharing)
+(https://drive.google.com/file/d/18m6RI6_hnnHtsifZ0kEo_7WdwUAIT-4r/view?usp=sharing)
   ## Credits
   D. Leblanc 12-2021
 ##
@@ -34,6 +34,6 @@
   
   ## Tests
   There are 4 tests included in the git repository including Employee.test.js, Engineer.test.js, Intern.test.js and Manager.test.js.  They can all be run in the terminal via npm run test.  See video for live testing and passing output.
-  ![Test Video](https://drive.google.com/file/d/1X2IZaPFMQ0tqinkMdYLfNFxK5RXQozYi/view?usp=sharing)
+(https://drive.google.com/file/d/1X2IZaPFMQ0tqinkMdYLfNFxK5RXQozYi/view?usp=sharing)
 
 
