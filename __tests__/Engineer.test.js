@@ -1,6 +1,6 @@
 // needs employee since this is the base class
+const Engineer = require("../lib/Engineer");
 const Employee = require("../lib/Employee");
-
 
 //test 11 get the git hub user name for a engineer
 test('creates git hub user name for an engineer', () => {
@@ -23,5 +23,4 @@ test('creates the role of engineer from function', () => {
     expect(engineer.getRole()).toEqual(role);
   }); 
 
-  // connects test to files you are testing
-module.exports = Engineer;
+
